@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:fugi_meet_3/presentation/home_page.dart';
+import 'package:fugi_meet_3/presentation/Homepage/home_page.dart';
 
 import 'shared/colors.dart';
 

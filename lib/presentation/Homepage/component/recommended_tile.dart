@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:fugi_meet_3/presentation/Detailpage/detail_page.dart';
 
-import '../../shared/shared.dart';
+import '../../../shared/shared.dart';
 
 class RecommendedTile extends StatelessWidget {
   const RecommendedTile({
@@ -18,27 +19,38 @@ class RecommendedTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 250,
-      child: Column(
-        children: [
-          Container(
-            width: 185,
-            height: 160,
-            decoration: BoxDecoration(
-              borderRadius: const BorderRadius.only(
-                topRight: Radius.circular(20),
-                topLeft: Radius.circular(20),
-              ),
-              image: DecorationImage(
-                fit: BoxFit.cover,
-                image: AssetImage(
-                  productImg,
+    return InkWell(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (builder) => const DetailPage(),
+          ),
+        );
+      },
+      child: SizedBox(
+        width: 175,
+        height: 250,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              width: 175,
+              height: 140,
+              decoration: BoxDecoration(
+                borderRadius: const BorderRadius.only(
+                  topRight: Radius.circular(20),
+                  topLeft: Radius.circular(20),
+                ),
+                image: DecorationImage(
+                  fit: BoxFit.cover,
+                  image: AssetImage(
+                    productImg,
+                  ),
                 ),
               ),
             ),
-          ),
-          Container(
+            Container(
               padding: const EdgeInsets.symmetric(
                 horizontal: 14,
                 vertical: 12,
@@ -63,7 +75,7 @@ class RecommendedTile extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        productPrice,
+                        '\$$productPrice',
                         style: const TextStyle(
                           fontSize: 20,
                           color: AppColor.greyColor,
@@ -89,8 +101,10 @@ class RecommendedTile extends StatelessWidget {
                     ],
                   )
                 ],
-              )),
-        ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
