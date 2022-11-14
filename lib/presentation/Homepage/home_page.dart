@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:fugi_meet_3/presentation/Homepage/sections/category_section.dart';
 import 'package:fugi_meet_3/presentation/Homepage/sections/recommended_section.dart';
-import 'package:fugi_meet_3/shared/colors.dart';
+import 'package:fugi_meet_3/shared/assets.dart';
+import 'package:fugi_meet_3/shared/shared.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -40,7 +41,8 @@ class _HomePageState extends State<HomePage> {
         padding: const EdgeInsets.symmetric(
           horizontal: 14,
         ),
-        child: ListView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Text(
               'Discover the most\nModern Furniture',
@@ -50,35 +52,54 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             CategorySection(category: category),
+            Container(
+              margin: const EdgeInsets.symmetric(vertical: 30),
+              child: const Text(
+                'Recommended Furnitures',
+                style: TextStyle(
+                  fontWeight: FontWeight.w500,
+                  fontSize: 16,
+                ),
+              ),
+            ),
             const RecommendedSection(),
           ],
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.white,
-        elevation: 1,
+        selectedItemColor: AppColor.greyColor,
+        unselectedItemColor: AppColor.lightGrey,
+        showSelectedLabels: false,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: Icon(
+              Icons.home_outlined,
+              size: 32,
+            ),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.business),
-            label: 'Business',
+            icon: Icon(
+              Icons.shopping_cart_outlined,
+              size: 32,
+            ),
+            label: 'Cart',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.school),
-            label: 'School',
+            icon: Icon(
+              Icons.star_outlined,
+              size: 32,
+            ),
+            label: 'Wishlish',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: 'Settings',
-          ),
+            icon: Icon(
+              Icons.person_outlined,
+              size: 32,
+            ),
+            label: 'Profile',
+          )
         ],
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
-        selectedItemColor: AppColor.greyColor,
-        unselectedItemColor: AppColor.lightGrey,
       ),
     );
   }
