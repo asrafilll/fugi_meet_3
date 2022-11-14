@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fugi_meet_3/presentation/Homepage/sections/category_section.dart';
 import 'package:fugi_meet_3/presentation/Homepage/sections/recommended_section.dart';
-import 'package:fugi_meet_3/shared/assets.dart';
 import 'package:fugi_meet_3/shared/shared.dart';
 
 class HomePage extends StatefulWidget {
@@ -31,9 +30,7 @@ class _HomePageState extends State<HomePage> {
             icon: const Icon(
               Icons.search,
             ),
-            onPressed: () {
-              // do something
-            },
+            onPressed: () {},
           )
         ],
       ),
